@@ -109,6 +109,9 @@ async fn run_big_parallel_task(spawn: &impl AdaptiveSpawn) {
 #[runtime::main]
 async fn main() {
     let spawn = imp::init();
+    const SMALL_CLIENT_CNT: usize = 128;
+    const BIG_CLIENT_CNT: usize = 4;
+
     let spawn2 = spawn.clone();
     let small_histogram = Histogram::configure()
         .max_value(60_000_000)
@@ -117,7 +120,7 @@ async fn main() {
         .unwrap();
     let small_histogram = Arc::new(Mutex::new(small_histogram));
     let small_histogram2 = small_histogram.clone();
-    let small_client = join_all((0..0).map(move |_| {
+    let small_client = join_all((0..SMALL_CLIENT_CNT).map(move |_| {
         let spawn2 = spawn2.clone();
         let small_histogram2 = small_histogram2.clone();
         async move {
@@ -138,7 +141,7 @@ async fn main() {
         .unwrap();
     let big_histogram = Arc::new(Mutex::new(big_histogram));
     let big_histogram2 = big_histogram.clone();
-    let big_client = join_all((0..4).map(move |_| {
+    let big_client = join_all((0..BIG_CLIENT_CNT).map(move |_| {
         let spawn2 = spawn2.clone();
         let big_histogram2 = big_histogram2.clone();
         async move {
