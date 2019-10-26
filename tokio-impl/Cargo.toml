@@ -1,0 +1,12 @@
+[package]
+name = "tokio-impl"
+version = "0.1.0"
+authors = ["Yilin Chen <sticnarf@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+adaptive-spawn = { path = "../spawn-trait" }
+futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
+tokio-threadpool = "0.1"

@@ -1,0 +1,20 @@
+[package]
+name = "tester"
+version = "0.1.0"
+authors = ["Yilin Chen <sticnarf@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+tokio = ["tokio-impl", "tokio-threadpool"]
+
+[dependencies]
+adaptive-spawn = { path = "../spawn-trait" }
+futures-preview = { version = "=0.3.0-alpha.19", features = ["async-await"] }
+rand = "0.7"
+futures-timer = "1"
+runtime = "0.3.0-alpha.7"
+histogram = "0.6"
+tokio-impl = { path = "../tokio-impl", optional = true }
+tokio-threadpool = { version = "0.1", optional = true }
