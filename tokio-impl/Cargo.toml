@@ -7,6 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-adaptive-spawn = { path = "../spawn-trait" }
+adaptive-spawn = { path = "../adaptive-spawn" }
 futures-preview = { version = "=0.3.0-alpha.19", features = ["compat"] }
 tokio-threadpool = "0.1"

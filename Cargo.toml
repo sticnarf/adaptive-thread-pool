@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "spawn-trait",
+    "adaptive-spawn",
     "tester",
     "tokio-impl"
 ]

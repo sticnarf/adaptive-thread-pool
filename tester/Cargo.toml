@@ -10,7 +10,7 @@ edition = "2018"
 tokio = ["tokio-impl", "tokio-threadpool"]
 
 [dependencies]
-adaptive-spawn = { path = "../spawn-trait" }
+adaptive-spawn = { path = "../adaptive-spawn" }
 futures-preview = { version = "=0.3.0-alpha.19", features = ["async-await"] }
 rand = "0.7"
 futures-timer = "1"
